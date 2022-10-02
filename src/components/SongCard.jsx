@@ -5,12 +5,19 @@ import PlayPause from './PlayPause';
 import { playPause, setActiveSong } from '../redux/features/playerSlice';
 
 const SongCard = ({ song, isPlaying, activeSong, data, i }) => {
+  /* A hook that allows you to dispatch actions to the Redux store. */
   const dispatch = useDispatch();
 
+  /**
+   * When the user clicks the pause button, dispatch the playPause action with a false value.
+   */
   const handlePauseClick = () => {
     dispatch(playPause(false));
   };
 
+  /**
+   * When the user clicks the play button, the song is set to active and the player is set to play.
+   */
   const handlePlayClick = () => {
     dispatch(setActiveSong({ song, data, i }));
     dispatch(playPause(true));
