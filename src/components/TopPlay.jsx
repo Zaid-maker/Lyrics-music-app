@@ -20,20 +20,24 @@ const TopChartCard = ({
   handlePauseClick,
   handlePlayClick,
 }) => (
-  <div className={`w-full flex flex-row items-center hover:bg-[#4c426e] ${activeSong?.title ? 'bg-[#4c426e]' : 'bg-transparent'} py-2 p-4 rounded-lg cursor-pointer mb-2`}>
+  <div
+    className={`w-full flex flex-row items-center hover:bg-[#4c426e] ${
+      activeSong?.title ? 'bg-[#4c426e]' : 'bg-transparent'
+    } py-2 p-4 rounded-lg cursor-pointer mb-2`}
+  >
     <h3 className="font-bold text-base text-white mr-3">{i + 1}.</h3>
     <div className="flex-1 flex flex-row justify-between items-center">
-      <img src={song?.images?.coverart} alt={song?.title} className="w-20 h-20 rounded-lg" />
+      <img
+        src={song?.images?.coverart}
+        alt={song?.title}
+        className="w-20 h-20 rounded-lg"
+      />
       <div className="flex-1 flex flex-col justify-center mx-3">
         <Link to={`/songs/${song.key}`}>
-          <p className="text-xl font-bold text-white">
-            {song?.title}
-          </p>
+          <p className="text-xl font-bold text-white">{song?.title}</p>
         </Link>
         <Link to={`/artists/${song?.artists[0].adamid}`}>
-          <p className="text-base text-gray-300 mt-1">
-            {song?.subtitle}
-          </p>
+          <p className="text-base text-gray-300 mt-1">{song?.subtitle}</p>
         </Link>
       </div>
     </div>
@@ -83,9 +87,9 @@ const TopPlay = () => {
     >
       <div className="w-full flex flex-col">
         <div className="flex flex-row justify-between items-center">
-          <h2 className="text-white font-bold text-2xl">Top Play</h2>
+          <h2 className="text-white font-bold text-2xl">Top Charts</h2>
           <Link to="/top-charts">
-            <p className="text-gray-300 text-base cursor-pointer">See More</p>
+            <p className="text-gray-300 text-base cursor-pointer">See more</p>
           </Link>
         </div>
 
@@ -104,7 +108,7 @@ const TopPlay = () => {
         </div>
       </div>
 
-      <div className="w-full flex flex-col mt-6">
+      <div className="w-full flex flex-col mt-8">
         <div className="flex flex-row justify-between items-center">
           <h2 className="text-white font-bold text-2xl">Top Artists</h2>
           <Link to="/top-artists">
@@ -130,8 +134,8 @@ const TopPlay = () => {
               <Link to={`/artists/${artist?.artists[0].adamid}`}>
                 <img
                   src={artist?.images?.background}
-                  alt="artistName"
-                  className="rounded-full w-full object-contain"
+                  alt="Name"
+                  className="rounded-full w-full object-cover"
                 />
               </Link>
             </SwiperSlide>
