@@ -1,5 +1,5 @@
-import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { DetailsHeader, Error, Loader, RelatedSongs } from '../components';
 
 import { useGetArtistDetailsQuery } from '../redux/services/shazamCore';
@@ -15,13 +15,10 @@ const ArtistDetails = () => {
 
   return (
     <div className="flex flex-col">
-      <DetailsHeader
-        artistId={artistId}
-        artistData={artistData}
-      />
+      <DetailsHeader artistId={artistId} artistData={artistData?.data[0]} />
 
       <RelatedSongs
-        data={Object.values(artistData?.songs)}
+        data={artistData?.data[0].views['top-songs']?.data}
         artistId={artistId}
         isPlaying={isPlaying}
         activeSong={activeSong}
